@@ -409,6 +409,13 @@
   margin-top: 0;
 }
 
+/* the label + arrow decoration only fits beside the card on wide screens */
+@media (max-width: 1365px) {
+  .book__cta {
+    display: none;
+  }
+}
+
 .about__fly {
   font-size: 0.7rem;
   padding: 3px;

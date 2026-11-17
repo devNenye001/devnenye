@@ -5,7 +5,7 @@ import type { Project, ProjectImage, ShotKind } from './types';
  *  PROJECTS: the single source of truth for every project on the site.
  *
  *  Add a project:
- *    1. Screenshot it:   npm run screenshots -- <slug> <url>
+ *    1. Screenshot it:   npm run screenshots -- <slug> <url>   (see README)
  *    2. Optimise images: node scripts/optimize-images.mjs screenshots-raw
  *    3. Add an entry below. Only `slug, name, url, type, industry, category,
  *       summary, tech, images` are required; everything else is optional and

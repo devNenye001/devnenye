@@ -22,7 +22,7 @@ export function Hero() {
   useGSAP(
     () => {
       if (prefersReducedMotion()) return;
-      const tl = gsap.timeline({ defaults: { ease: 'expo.out' }, delay: 0.25 });
+      const tl = gsap.timeline({ defaults: { ease: 'expo.out', clearProps: CLEAR }, delay: 0.25 });
 
       // Headline lines rise through a mask
       tl.from('.hero__caps', { y: 12, autoAlpha: 0, duration: 0.8 })
@@ -32,7 +32,7 @@ export function Hero() {
       const split = SplitText.create('.hero .boxed-word__text', { type: 'chars' });
       tl.from('.hero .boxed-word', { scaleX: 0.6, autoAlpha: 0, transformOrigin: '0% 50%', duration: 0.7 }, '-=0.6')
         .from(split.chars, { yPercent: 80, autoAlpha: 0.15, duration: 0.6, stagger: 0.09, ease: 'back.out(2)' }, '<0.1')
-        .fromTo('.hero .boxed-word__arrow', { rotate: 0 }, { rotate: 45, duration: 0.6, ease: 'back.out(3)' }, '<0.2');
+        .fromTo('.hero .boxed-word__arrow', { rotate: 0 }, { rotate: 45, duration: 0.6, ease: 'back.out(3)', clearProps: '' }, '<0.2');
 
       // Copy fades from grey to full, then capsules and CTA
       tl.from('.hero__copy p', { autoAlpha: 0.25, y: 10, duration: 0.9, stagger: 0.12 }, '-=0.4')

@@ -334,8 +334,11 @@ section[id] {
   font-size: 1rem;
   text-decoration: none;
   cursor: pointer;
+  /* hover/press use `translate`/`scale`, never `transform`: GSAP owns `transform`
+     for entrances, and a CSS transition on it corrupts GSAP's end values */
   transition:
-    transform 0.25s var(--ease-smooth),
+    translate 0.25s var(--ease-smooth),
+    scale 0.2s var(--ease-smooth),
     box-shadow 0.4s,
     border-color 0.2s,
     background-color 0.2s;
@@ -344,11 +347,11 @@ section[id] {
 
 .btn:hover {
   box-shadow: 0 0 0 4px rgba(97, 17, 235, 0.08);
-  transform: translateY(-1px);
+  translate: 0 -1px;
 }
 
 .btn:active {
-  transform: scale(0.97);
+  scale: 0.97;
 }
 
 .btn__avatar {
@@ -476,7 +479,7 @@ section[id] {
   transition:
     border-color 0.2s,
     background-color 0.2s,
-    transform 0.2s;
+    scale 0.2s;
 }
 
 .btn-outline:hover {
@@ -485,7 +488,7 @@ section[id] {
 }
 
 .btn-outline:active {
-  transform: scale(0.97);
+  scale: 0.97;
 }
 
 .btn-outline svg {
@@ -661,7 +664,7 @@ section[id] {
   background-image: var(--pattern-dot);
   background-size: 10px;
   transition:
-    transform 0.4s var(--ease-smooth),
+    rotate 0.4s var(--ease-smooth),
     border-color 0.4s,
     filter 0.4s;
 }
@@ -672,7 +675,7 @@ section[id] {
 
 .note-card:hover {
   border-color: var(--purple);
-  transform: rotate(1deg);
+  rotate: 1deg;
   filter: drop-shadow(0 4px 10px rgba(159, 87, 206, 0.2));
 }
 
