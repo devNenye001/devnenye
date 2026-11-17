@@ -1,5 +1,0 @@
-package com.example.smart_socket
-
-import io.flutter.embedding.android.FlutterActivity
-
-class MainActivity : FlutterActivity()
