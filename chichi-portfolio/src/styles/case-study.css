@@ -1,0 +1,237 @@
+/* ==========================================================================
+   Case study modal
+   ========================================================================== */
+.cs-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  background: rgba(17, 17, 17, 0.45);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.cs-panel {
+  position: absolute;
+  left: 50%;
+  top: 1.5rem;
+  bottom: 0;
+  width: min(80vw, 1100px);
+  margin-left: max(-40vw, -550px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px dashed var(--grey-dots);
+  border-bottom: none;
+  border-radius: 14px 14px 0 0;
+  background-color: var(--white);
+  background-image: var(--pattern-dot);
+  background-size: 20px;
+}
+
+.cs-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px dashed var(--grey-dots);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.cs-close {
+  gap: 0.4rem;
+  padding: 6px 10px;
+}
+
+.cs-content {
+  width: 90%;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.cs-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.cs-head__labels {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cs-head__title {
+  font-size: 3.2rem;
+  line-height: 1.05;
+}
+
+.cs-head__summary {
+  max-width: 40rem;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--neutral-dark);
+}
+
+.cs-hero {
+  width: 100%;
+}
+
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.cs-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  border: 1px dashed var(--grey-dots);
+  border-radius: var(--radius-medium);
+  background: var(--white);
+  transition: border-color 0.3s;
+}
+
+.cs-block:hover {
+  border-color: var(--purple);
+}
+
+.cs-block__body p {
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.cs-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.cs-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.cs-chips .chip {
+  font-size: 0.78rem;
+}
+
+.cs-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.cs-gallery__grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.cs-gallery__desktop {
+  width: calc(50% - 0.5rem);
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #e2e4eb;
+  box-shadow: 0 16px 30px -22px rgba(0, 0, 0, 0.4);
+}
+
+.cs-gallery__mobile {
+  width: 170px;
+  height: auto;
+  border-radius: 14px;
+  border: 4px solid var(--neutral-darkest);
+}
+
+.cs-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 2rem;
+  border-top: 1px dashed var(--grey-dots);
+}
+
+.cs-pager__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 48%;
+  padding: 0.75rem 1rem;
+  border: 1px dashed var(--purple-dark);
+  border-radius: var(--radius-small);
+  background: var(--white);
+  text-align: left;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.cs-pager__btn:hover {
+  background: var(--purple-bg);
+}
+
+.cs-pager__btn small {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--neutral);
+}
+
+.cs-pager__btn--next {
+  text-align: right;
+  margin-left: auto;
+}
+
+@media (max-width: 991px) {
+  .cs-panel {
+    width: 94vw;
+    margin-left: -47vw;
+    top: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .cs-head__title {
+    font-size: 2.2rem;
+  }
+
+  .cs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-gallery__desktop {
+    width: 100%;
+  }
+
+  .cs-gallery__mobile {
+    width: calc(50% - 0.5rem);
+  }
+}
+
+@media (max-width: 479px) {
+  .cs-pager {
+    flex-direction: column;
+  }
+
+  .cs-pager__btn {
+    max-width: none;
+  }
+}
